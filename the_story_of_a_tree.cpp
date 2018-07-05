@@ -1,3 +1,5 @@
+//Practice->algorithm->Graph Theory-> The Story of Tree
+
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -19,9 +21,9 @@ void dfs(vvi &adj,int src,vector<bool>&visited,int parent[]){
 			dfs(adj,it,visited,parent);
 			parent[it]=src;
 		}
-			
+
 	}
-	
+
 }
 void guessed(int parent[],multimap<int,int>&guess){
 	for(auto it:guess){
@@ -31,7 +33,7 @@ void guessed(int parent[],multimap<int,int>&guess){
 	if(c>=k) cnt++;
 }
 void calculate(int parent[],int src,vvi &adj,vector<bool>&visited,multimap<int,int>&guess){
-	
+
 	visited[src]=true;
 	for(int it:adj[src])
 	{	int temp,l=0;
@@ -72,9 +74,9 @@ void calculate(int parent[],int src,vvi &adj,vector<bool>&visited,multimap<int,i
 			parent[temp]=temp;
 			c-=l;
 		}
-		
+
 	}
-	
+
 
 }
 int main(){
@@ -109,13 +111,13 @@ int main(){
             parent[i]=i;
         dfs(adj,0,visited,parent);
         guessed(parent,guess);
-        
+
         vector<bool>visit(n,false);
-		
+
         calculate(parent,0,adj,visit,guess);
         int gcd=__gcd(cnt,n);
         cout<<"cnt: "<<cnt<<endl;
-        cout<<cnt/gcd<<"/"<<n/gcd<<"\n"; 
+        cout<<cnt/gcd<<"/"<<n/gcd<<"\n";
 		c=0;
 		cnt=0;
     }
