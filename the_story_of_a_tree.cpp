@@ -29,7 +29,7 @@ void guessed(int parent[],multimap<int,int>&guess){
 	for(auto it:guess){
 		if(parent[it.first]==it.second) c++;
 	}
-	cout<<"c: "<<c<<endl;
+//	cout<<"c: "<<c<<endl;
 	if(c>=k) cnt++;
 }
 void calculate(int parent[],int src,vvi &adj,vector<bool>&visited,multimap<int,int>&guess){
@@ -66,7 +66,7 @@ void calculate(int parent[],int src,vvi &adj,vector<bool>&visited,multimap<int,i
 			if(!a && b)
 				l++;
 			c+=l;
-			cout<<"c: "<<c<<endl;
+		//	cout<<"c: "<<c<<endl;
 			if(c>=k)
 				cnt++;
 			calculate(parent,it,adj,visited,guess);
@@ -97,7 +97,7 @@ int main(){
         }
         int g;
         cin>>g>>k;
-        cout<<"k: "<<k<<endl;
+       // cout<<"k: "<<k<<endl;
         multimap<int,int> guess;
         for(int i=0;i<g;i++){
             int u,v;
@@ -116,7 +116,7 @@ int main(){
 
         calculate(parent,0,adj,visit,guess);
         int gcd=__gcd(cnt,n);
-        cout<<"cnt: "<<cnt<<endl;
+       // cout<<"cnt: "<<cnt<<endl;
         cout<<cnt/gcd<<"/"<<n/gcd<<"\n";
 		c=0;
 		cnt=0;
